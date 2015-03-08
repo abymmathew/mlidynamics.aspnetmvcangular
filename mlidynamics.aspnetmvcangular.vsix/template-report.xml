@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TemplateReport>
+  <ItemTemplates />
+  <ProjectTemplates>
+    <ProjectTemplate Path="..\mlidynamics.aspnetmvcangular\_Definitions\_project.vstemplate.xml" Name="ASPNET MVC 5.0 with Angular" Description="Template to create an aspnet mvc angular project" ProjectType="CSharp" ProjectSubType="" />
+  </ProjectTemplates>
+  <Snippets />
+</TemplateReport>
