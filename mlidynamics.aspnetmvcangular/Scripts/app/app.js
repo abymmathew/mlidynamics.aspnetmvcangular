@@ -1,6 +1,6 @@
 ﻿// Main configuration file. Sets up AngularJS module and routes and any other config objects
 
-var appRoot = angular.module("main", ["ngRoute", "ngGrid", "ngResource", "angularStart.services", "angularStart.directives"]); //Define the main module
+var appRoot = angular.module("main", ["ngRoute", "ngGrid", "ngResource"]); //Define the main module
 
 appRoot
     .config([
@@ -18,7 +18,17 @@ appRoot
     .controller("RootController", [
         "$scope", "$route", "$routeParams", "$location", function($scope, $route, $routeParams, $location) {
             $scope.$on("$routeChangeSuccess", function(e, current, previous) {
-                $scope.activeViewPath = $location.path();
+
+                var isAuthorized = true; // hard coded - use service to authorize
+
+                if (current.controller != undefined) {
+                    // -- check here if we are authorized to proceed
+                    if (!isAuthorized) {
+                        $location.url("/home");
+                    } else {
+                        $scope.activeViewPath = $location.path();
+                    }
+                }
             });
         }
     ]);
